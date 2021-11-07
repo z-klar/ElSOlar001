@@ -1,0 +1,7 @@
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\net5.0-windows\Solar001.csproj.AssemblyReference.cache
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\net5.0-windows\Solar001.frmMain.resources
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\net5.0-windows\Solar001.csproj.GenerateResource.cache
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\net5.0-windows\Solar001.GeneratedMSBuildEditorConfig.editorconfig
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\net5.0-windows\Solar001.AssemblyInfoInputs.cache
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\net5.0-windows\Solar001.AssemblyInfo.cs
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\net5.0-windows\Solar001.csproj.CoreCompileInputs.cache
