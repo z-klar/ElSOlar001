@@ -90,22 +90,26 @@ namespace Solar001
         {
             int testno = tries, curr = 0;
             int setpoint = 1700, step;
-            double diff, reldiff; ;
+            double diff, reldiff, calculatedCurrent = 0; 
 
-            DisableChannel(chan, loguj);
+            DisableChannel(chan, false);
             while(testno >= 0)
             {
                 SendSetpointInt(setpoint, loguj);
                 Thread.Sleep(50);
                 curr = GetAverageCurrent(3, 40, loguj);
-                reldiff = Diff(current, curr);
+                double milliVolts = (curr - CurrentZeroOffset) * CurrentChanVoltageRatio;
+                double amps = milliVolts / CurrentChanAmpereRatio;
+                calculatedCurrent = Math.Abs(amps);
+
+                reldiff = Diff(current, calculatedCurrent);
                 if (reldiff <= tolerance) break;
                 if (reldiff > 100) step = 100;
                 else if (reldiff > 30) step = 20;
                 else step = 5;
 
                 testno--;
-                diff = curr - current;
+                diff = calculatedCurrent - current;
                 if(diff > 0)
                 {
                     setpoint -= step;
@@ -115,7 +119,7 @@ namespace Solar001
                     setpoint += step;
                 }
             }
-            return (curr);
+            return (calculatedCurrent);
         }
 
         private double Diff(double target, double value)

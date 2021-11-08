@@ -227,7 +227,12 @@ namespace Solar001
                 MessageBox.Show("Wrong PERIOD format !");
                 return;
             }
-            GetAverageCurrent(samples, period, true);
+            int v = GetAverageCurrent(samples, period, true);
+            txCurrentRaw.Text = String.Format("{0:D5}", v);
+            double milliVolts = (v - CurrentZeroOffset) * CurrentChanVoltageRatio;
+            double amps = milliVolts / CurrentChanAmpereRatio;
+            amps = Math.Abs(amps);
+            txCurrentReal.Text = String.Format("{0:F3}", amps);
         }
 
         private void chkAutoCurrent_CheckedChanged(object sender, EventArgs e)

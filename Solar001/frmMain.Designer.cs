@@ -100,6 +100,7 @@ namespace Solar001
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.chkTests01Loguj = new System.Windows.Forms.CheckBox();
             this.btnTests01SetCurrent = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.txTests01Result = new System.Windows.Forms.TextBox();
@@ -117,7 +118,6 @@ namespace Solar001
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.chkTests01Loguj = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -149,9 +149,9 @@ namespace Solar001
             // 
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -169,7 +169,7 @@ namespace Solar001
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1259, 260);
+            this.tabPage4.Size = new System.Drawing.Size(1259, 284);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Main";
             // 
@@ -671,7 +671,7 @@ namespace Solar001
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1259, 260);
+            this.tabPage2.Size = new System.Drawing.Size(1259, 284);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Comm Log";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -694,7 +694,7 @@ namespace Solar001
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.lbCommLog);
-            this.splitContainer2.Size = new System.Drawing.Size(1253, 254);
+            this.splitContainer2.Size = new System.Drawing.Size(1253, 278);
             this.splitContainer2.SplitterDistance = 32;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -718,7 +718,7 @@ namespace Solar001
             this.lbCommLog.ItemHeight = 17;
             this.lbCommLog.Location = new System.Drawing.Point(0, 0);
             this.lbCommLog.Name = "lbCommLog";
-            this.lbCommLog.Size = new System.Drawing.Size(1249, 214);
+            this.lbCommLog.Size = new System.Drawing.Size(1249, 238);
             this.lbCommLog.TabIndex = 2;
             // 
             // tabPage1
@@ -739,7 +739,7 @@ namespace Solar001
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1259, 260);
+            this.tabPage1.Size = new System.Drawing.Size(1259, 284);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Config";
             // 
@@ -869,7 +869,7 @@ namespace Solar001
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1259, 260);
+            this.tabPage3.Size = new System.Drawing.Size(1259, 284);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tests";
             // 
@@ -933,6 +933,16 @@ namespace Solar001
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(239, 260);
             this.panel5.TabIndex = 0;
+            // 
+            // chkTests01Loguj
+            // 
+            this.chkTests01Loguj.AutoSize = true;
+            this.chkTests01Loguj.Location = new System.Drawing.Point(90, 199);
+            this.chkTests01Loguj.Name = "chkTests01Loguj";
+            this.chkTests01Loguj.Size = new System.Drawing.Size(102, 19);
+            this.chkTests01Loguj.TabIndex = 15;
+            this.chkTests01Loguj.Text = "Log Operation";
+            this.chkTests01Loguj.UseVisualStyleBackColor = true;
             // 
             // btnTests01SetCurrent
             // 
@@ -1128,16 +1138,6 @@ namespace Solar001
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.TimerTick);
-            // 
-            // chkTests01Loguj
-            // 
-            this.chkTests01Loguj.AutoSize = true;
-            this.chkTests01Loguj.Location = new System.Drawing.Point(90, 199);
-            this.chkTests01Loguj.Name = "chkTests01Loguj";
-            this.chkTests01Loguj.Size = new System.Drawing.Size(102, 19);
-            this.chkTests01Loguj.TabIndex = 15;
-            this.chkTests01Loguj.Text = "Log Operation";
-            this.chkTests01Loguj.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
