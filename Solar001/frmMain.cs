@@ -71,7 +71,7 @@ namespace Solar001
 
         private void btnTestSendCommand_Click(object sender, EventArgs e)
         {
-            sendCommand2(txTestCommand.Text);
+            sendCommand2(txTestCommand.Text, true);
         }
 
         private void TimerTick(object sender, EventArgs e)
@@ -86,7 +86,7 @@ namespace Solar001
 
         private void btnUpdateVoltageCh0_Click(object sender, EventArgs e)
         {
-            int v = GetVoltage(1);
+            int v = GetVoltage(1, true);
             txCh0VoltageRaw.Text = String.Format("{0:D5}", v);
             double volt = v / VoltageConversionCoeff[0];
             txCh0VoltageReal.Text = String.Format("{0:F2}", volt);
@@ -94,7 +94,7 @@ namespace Solar001
 
         private void btnUpdateVoltageCh1_Click(object sender, EventArgs e)
         {
-            int v = GetVoltage(2);
+            int v = GetVoltage(2, true);
             txCh1VoltageRaw.Text = String.Format("{0:D5}", v);
             double volt = v / VoltageConversionCoeff[0];
             txCh1VoltageReal.Text = String.Format("{0:F2}", volt);
@@ -102,7 +102,7 @@ namespace Solar001
 
         private void btnUpdateCurrent_Click(object sender, EventArgs e)
         {
-            int v = GetVoltage(0);
+            int v = GetVoltage(0, true);
             txCurrentRaw.Text = String.Format("{0:D5}", v);
             double milliVolts = (v - CurrentZeroOffset) * CurrentChanVoltageRatio;
             double amps = milliVolts / CurrentChanAmpereRatio;
@@ -189,28 +189,28 @@ namespace Solar001
         {
             String cmd = String.Format("~D01#");
             pbChan0.BackColor = Color.Red;
-            sendCommand2(cmd);
+            sendCommand2(cmd, true);
         }
 
         private void btnEnableChan0_Click(object sender, EventArgs e)
         {
             String cmd = String.Format("~D00#");
             pbChan0.BackColor = Color.Lime;
-            sendCommand2(cmd);
+            sendCommand2(cmd, true);
         }
 
         private void btnDisableChn1_Click(object sender, EventArgs e)
         {
             String cmd = String.Format("~D11#");
             pbChan1.BackColor = Color.Red;
-            sendCommand2(cmd);
+            sendCommand2(cmd, true);
         }
 
         private void btnEnableChan1_Click(object sender, EventArgs e)
         {
             String cmd = String.Format("~D10#");
             pbChan1.BackColor = Color.Lime;
-            sendCommand2(cmd);
+            sendCommand2(cmd, true);
         }
 
         private void btnGetAvgCurrent_Click(object sender, EventArgs e)

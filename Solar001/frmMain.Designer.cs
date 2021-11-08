@@ -117,6 +117,7 @@ namespace Solar001
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.chkTests01Loguj = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -155,7 +156,7 @@ namespace Solar001
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1267, 288);
+            this.tabControl1.Size = new System.Drawing.Size(1267, 312);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage4
@@ -908,13 +909,14 @@ namespace Solar001
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1259, 260);
+            this.tabPage5.Size = new System.Drawing.Size(1259, 284);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Tests 01";
             // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.chkTests01Loguj);
             this.panel5.Controls.Add(this.btnTests01SetCurrent);
             this.panel5.Controls.Add(this.label22);
             this.panel5.Controls.Add(this.txTests01Result);
@@ -929,12 +931,12 @@ namespace Solar001
             this.panel5.Controls.Add(this.label17);
             this.panel5.Location = new System.Drawing.Point(6, 6);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(239, 248);
+            this.panel5.Size = new System.Drawing.Size(239, 260);
             this.panel5.TabIndex = 0;
             // 
             // btnTests01SetCurrent
             // 
-            this.btnTests01SetCurrent.Location = new System.Drawing.Point(68, 204);
+            this.btnTests01SetCurrent.Location = new System.Drawing.Point(68, 224);
             this.btnTests01SetCurrent.Name = "btnTests01SetCurrent";
             this.btnTests01SetCurrent.Size = new System.Drawing.Size(102, 23);
             this.btnTests01SetCurrent.TabIndex = 14;
@@ -1084,7 +1086,7 @@ namespace Solar001
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer1.Size = new System.Drawing.Size(1271, 633);
-            this.splitContainer1.SplitterDistance = 292;
+            this.splitContainer1.SplitterDistance = 316;
             this.splitContainer1.TabIndex = 1;
             // 
             // splitContainer3
@@ -1105,7 +1107,7 @@ namespace Solar001
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.lbMainLog);
-            this.splitContainer3.Size = new System.Drawing.Size(1271, 337);
+            this.splitContainer3.Size = new System.Drawing.Size(1271, 313);
             this.splitContainer3.SplitterDistance = 33;
             this.splitContainer3.TabIndex = 1;
             // 
@@ -1119,13 +1121,23 @@ namespace Solar001
             this.lbMainLog.ItemHeight = 17;
             this.lbMainLog.Location = new System.Drawing.Point(0, 0);
             this.lbMainLog.Name = "lbMainLog";
-            this.lbMainLog.Size = new System.Drawing.Size(1267, 296);
+            this.lbMainLog.Size = new System.Drawing.Size(1267, 272);
             this.lbMainLog.TabIndex = 0;
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.TimerTick);
+            // 
+            // chkTests01Loguj
+            // 
+            this.chkTests01Loguj.AutoSize = true;
+            this.chkTests01Loguj.Location = new System.Drawing.Point(90, 199);
+            this.chkTests01Loguj.Name = "chkTests01Loguj";
+            this.chkTests01Loguj.Size = new System.Drawing.Size(102, 19);
+            this.chkTests01Loguj.TabIndex = 15;
+            this.chkTests01Loguj.Text = "Log Operation";
+            this.chkTests01Loguj.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -1260,6 +1272,7 @@ namespace Solar001
         private System.Windows.Forms.ComboBox cbTests01Channel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnTests01SetCurrent;
+        private System.Windows.Forms.CheckBox chkTests01Loguj;
     }
 }
 

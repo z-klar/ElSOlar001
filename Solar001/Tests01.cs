@@ -39,7 +39,7 @@ namespace Solar001
                 MessageBox.Show("Wrong tolerance format !");
                 return;
             }
-            res = SetCurrentInt(chan, current, tries, tolerance);
+            res = SetCurrentInt(chan, current, tries, tolerance, chkTests01Loguj.Checked);
             txTests01Result.Text = String.Format("{0:F3}", res);
         }
         /// <summary>
@@ -86,30 +86,33 @@ namespace Solar001
         /// <param name="tries"></param>
         /// <param name="tolerance"></param>
         /// <returns></returns>
-        private double SetCurrentInt(int chan, double current, int tries, double tolerance)
+        private double SetCurrentInt(int chan, double current, int tries, double tolerance, bool loguj)
         {
             int testno = tries, curr = 0;
-            int setpoint = 1700;
-            double diff, reldiff;
+            int setpoint = 1700, step;
+            double diff, reldiff; ;
 
-            DisableChannel(chan, false);
+            DisableChannel(chan, loguj);
             while(testno >= 0)
             {
-                SendSetpointInt(setpoint, true);
+                SendSetpointInt(setpoint, loguj);
                 Thread.Sleep(50);
-                curr = GetAverageCurrent(3, 40, true);
+                curr = GetAverageCurrent(3, 40, loguj);
                 reldiff = Diff(current, curr);
                 if (reldiff <= tolerance) break;
+                if (reldiff > 100) step = 100;
+                else if (reldiff > 30) step = 20;
+                else step = 5;
 
                 testno--;
                 diff = curr - current;
                 if(diff > 0)
                 {
-                    setpoint -= 20;
+                    setpoint -= step;
                 }
                 else
                 {
-                    setpoint += 20;
+                    setpoint += step;
                 }
             }
             return (curr);

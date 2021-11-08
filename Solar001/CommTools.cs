@@ -63,18 +63,20 @@ namespace Solar001
             }
         }
 
-        private void sendCommand2(string cmd)
+        private void sendCommand2(string cmd, bool loguj)
         {
             if (errOpenedPort()) return;
             byte[] bytes;
             bytes = Encoding.ASCII.GetBytes(cmd);
             _serialPort.Write(bytes, 0, bytes.Length);
-            string msg = String.Format("TX: {0}", cmd);
-            lbCommLog.Items.Add(msg);
-
+            if (loguj)
+            {
+                string msg = String.Format("TX: {0}", cmd);
+                lbCommLog.Items.Add(msg);
+            }
             commResponse = "";
             receptionEnded = false;
-            WaitForResponse();
+            WaitForResponse(loguj);
         }
 
         private void sendCommand(string cmd)
@@ -148,7 +150,7 @@ namespace Solar001
         /// <summary>
         /// 
         /// </summary>
-        private void WaitForResponse()
+        private void WaitForResponse(bool loguj)
         {
             int round = 20, poc, noBytesReceived = 0; ;
             byte[] rxbuff = new byte[100];
@@ -172,8 +174,11 @@ namespace Solar001
                 Thread.Sleep(50);
             }
             sPom = Encoding.ASCII.GetString(rxbuff, 0, noBytesReceived);
-            String msg = String.Format("RX: {0}", sPom);
-            lbCommLog.Items.Add(msg);
+            if (loguj)
+            {
+                String msg = String.Format("RX: {0}", sPom);
+                lbCommLog.Items.Add(msg);
+            }
             commResponse = sPom;
             receptionEnded = true;
         }
