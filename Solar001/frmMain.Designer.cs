@@ -81,23 +81,6 @@ namespace Solar001
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.btnClearCommLog = new System.Windows.Forms.Button();
             this.lbCommLog = new System.Windows.Forms.ListBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnCalibrateCurrent = new System.Windows.Forms.Button();
-            this.btnUpdateCfgData = new System.Windows.Forms.Button();
-            this.txCfgCurrentZeroOffset = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txCfgSerialPort = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnClearMainLog = new System.Windows.Forms.Button();
-            this.btnCloseSerialPort = new System.Windows.Forms.Button();
-            this.btnOpenSerialPort = new System.Windows.Forms.Button();
-            this.btnUpdateSerialPorts = new System.Windows.Forms.Button();
-            this.cbSerialPort = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnTestSendCommand = new System.Windows.Forms.Button();
-            this.txTestCommand = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.chkTests01Loguj = new System.Windows.Forms.CheckBox();
@@ -113,11 +96,30 @@ namespace Solar001
             this.label18 = new System.Windows.Forms.Label();
             this.cbTests01Channel = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnTestSendCommand = new System.Windows.Forms.Button();
+            this.txTestCommand = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnCalibrateCurrent = new System.Windows.Forms.Button();
+            this.btnUpdateCfgData = new System.Windows.Forms.Button();
+            this.txCfgCurrentZeroOffset = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txCfgSerialPort = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnClearMainLog = new System.Windows.Forms.Button();
+            this.btnCloseSerialPort = new System.Windows.Forms.Button();
+            this.btnOpenSerialPort = new System.Windows.Forms.Button();
+            this.btnUpdateSerialPorts = new System.Windows.Forms.Button();
+            this.cbSerialPort = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClearMainLog2 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txTests01CurrIterations = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -131,10 +133,10 @@ namespace Solar001
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -152,6 +154,7 @@ namespace Solar001
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -721,6 +724,217 @@ namespace Solar001
             this.lbCommLog.Size = new System.Drawing.Size(1249, 238);
             this.lbCommLog.TabIndex = 2;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage5.Controls.Add(this.panel5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1259, 284);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Tests 01";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.label23);
+            this.panel5.Controls.Add(this.txTests01CurrIterations);
+            this.panel5.Controls.Add(this.chkTests01Loguj);
+            this.panel5.Controls.Add(this.btnTests01SetCurrent);
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.txTests01Result);
+            this.panel5.Controls.Add(this.label21);
+            this.panel5.Controls.Add(this.txTests01Tolerance);
+            this.panel5.Controls.Add(this.txTests01Tries);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Controls.Add(this.txTests01Current);
+            this.panel5.Controls.Add(this.label19);
+            this.panel5.Controls.Add(this.label18);
+            this.panel5.Controls.Add(this.cbTests01Channel);
+            this.panel5.Controls.Add(this.label17);
+            this.panel5.Location = new System.Drawing.Point(6, 6);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(239, 260);
+            this.panel5.TabIndex = 0;
+            // 
+            // chkTests01Loguj
+            // 
+            this.chkTests01Loguj.AutoSize = true;
+            this.chkTests01Loguj.Location = new System.Drawing.Point(90, 205);
+            this.chkTests01Loguj.Name = "chkTests01Loguj";
+            this.chkTests01Loguj.Size = new System.Drawing.Size(102, 19);
+            this.chkTests01Loguj.TabIndex = 15;
+            this.chkTests01Loguj.Text = "Log Operation";
+            this.chkTests01Loguj.UseVisualStyleBackColor = true;
+            // 
+            // btnTests01SetCurrent
+            // 
+            this.btnTests01SetCurrent.Location = new System.Drawing.Point(68, 227);
+            this.btnTests01SetCurrent.Name = "btnTests01SetCurrent";
+            this.btnTests01SetCurrent.Size = new System.Drawing.Size(102, 23);
+            this.btnTests01SetCurrent.TabIndex = 14;
+            this.btnTests01SetCurrent.Text = "SET Current";
+            this.btnTests01SetCurrent.UseVisualStyleBackColor = true;
+            this.btnTests01SetCurrent.Click += new System.EventHandler(this.btnTests01SetCurrent_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(42, 151);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(42, 15);
+            this.label22.TabIndex = 13;
+            this.label22.Text = "Result:";
+            // 
+            // txTests01Result
+            // 
+            this.txTests01Result.BackColor = System.Drawing.Color.Black;
+            this.txTests01Result.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txTests01Result.ForeColor = System.Drawing.Color.Lime;
+            this.txTests01Result.Location = new System.Drawing.Point(90, 147);
+            this.txTests01Result.Name = "txTests01Result";
+            this.txTests01Result.Size = new System.Drawing.Size(121, 25);
+            this.txTests01Result.TabIndex = 12;
+            this.txTests01Result.Text = "0";
+            this.txTests01Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 123);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(81, 15);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "Tolerance [%]:";
+            // 
+            // txTests01Tolerance
+            // 
+            this.txTests01Tolerance.BackColor = System.Drawing.Color.Black;
+            this.txTests01Tolerance.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txTests01Tolerance.ForeColor = System.Drawing.Color.Lime;
+            this.txTests01Tolerance.Location = new System.Drawing.Point(90, 119);
+            this.txTests01Tolerance.Name = "txTests01Tolerance";
+            this.txTests01Tolerance.Size = new System.Drawing.Size(121, 25);
+            this.txTests01Tolerance.TabIndex = 10;
+            this.txTests01Tolerance.Text = "5";
+            this.txTests01Tolerance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txTests01Tries
+            // 
+            this.txTests01Tries.BackColor = System.Drawing.Color.Black;
+            this.txTests01Tries.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txTests01Tries.ForeColor = System.Drawing.Color.Lime;
+            this.txTests01Tries.Location = new System.Drawing.Point(90, 90);
+            this.txTests01Tries.Name = "txTests01Tries";
+            this.txTests01Tries.Size = new System.Drawing.Size(121, 25);
+            this.txTests01Tries.TabIndex = 9;
+            this.txTests01Tries.Text = "10";
+            this.txTests01Tries.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(41, 96);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(43, 15);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "# Tries:";
+            // 
+            // txTests01Current
+            // 
+            this.txTests01Current.BackColor = System.Drawing.Color.Black;
+            this.txTests01Current.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txTests01Current.ForeColor = System.Drawing.Color.Lime;
+            this.txTests01Current.Location = new System.Drawing.Point(90, 61);
+            this.txTests01Current.Name = "txTests01Current";
+            this.txTests01Current.Size = new System.Drawing.Size(121, 25);
+            this.txTests01Current.TabIndex = 7;
+            this.txTests01Current.Text = "0,1";
+            this.txTests01Current.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(15, 65);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(69, 15);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Current [A]:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(33, 37);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(51, 15);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Channel";
+            // 
+            // cbTests01Channel
+            // 
+            this.cbTests01Channel.FormattingEnabled = true;
+            this.cbTests01Channel.Items.AddRange(new object[] {
+            "Channel 0",
+            "Channel 1"});
+            this.cbTests01Channel.Location = new System.Drawing.Point(90, 34);
+            this.cbTests01Channel.Name = "cbTests01Channel";
+            this.cbTests01Channel.Size = new System.Drawing.Size(121, 23);
+            this.cbTests01Channel.TabIndex = 1;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label17.Location = new System.Drawing.Point(54, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(116, 20);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Current Setting";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage3.Controls.Add(this.btnTestSendCommand);
+            this.tabPage3.Controls.Add(this.txTestCommand);
+            this.tabPage3.Controls.Add(this.label2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1259, 284);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Tests";
+            // 
+            // btnTestSendCommand
+            // 
+            this.btnTestSendCommand.Location = new System.Drawing.Point(312, 6);
+            this.btnTestSendCommand.Name = "btnTestSendCommand";
+            this.btnTestSendCommand.Size = new System.Drawing.Size(75, 23);
+            this.btnTestSendCommand.TabIndex = 2;
+            this.btnTestSendCommand.Text = "Send";
+            this.btnTestSendCommand.UseVisualStyleBackColor = true;
+            this.btnTestSendCommand.Click += new System.EventHandler(this.btnTestSendCommand_Click);
+            // 
+            // txTestCommand
+            // 
+            this.txTestCommand.BackColor = System.Drawing.Color.Black;
+            this.txTestCommand.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txTestCommand.ForeColor = System.Drawing.Color.Lime;
+            this.txTestCommand.Location = new System.Drawing.Point(79, 6);
+            this.txTestCommand.Name = "txTestCommand";
+            this.txTestCommand.Size = new System.Drawing.Size(227, 25);
+            this.txTestCommand.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Command:";
+            // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.LightGray;
@@ -860,215 +1074,6 @@ namespace Solar001
             this.label1.TabIndex = 0;
             this.label1.Text = "Serial Port:";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.LightGray;
-            this.tabPage3.Controls.Add(this.btnTestSendCommand);
-            this.tabPage3.Controls.Add(this.txTestCommand);
-            this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1259, 284);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Tests";
-            // 
-            // btnTestSendCommand
-            // 
-            this.btnTestSendCommand.Location = new System.Drawing.Point(312, 6);
-            this.btnTestSendCommand.Name = "btnTestSendCommand";
-            this.btnTestSendCommand.Size = new System.Drawing.Size(75, 23);
-            this.btnTestSendCommand.TabIndex = 2;
-            this.btnTestSendCommand.Text = "Send";
-            this.btnTestSendCommand.UseVisualStyleBackColor = true;
-            this.btnTestSendCommand.Click += new System.EventHandler(this.btnTestSendCommand_Click);
-            // 
-            // txTestCommand
-            // 
-            this.txTestCommand.BackColor = System.Drawing.Color.Black;
-            this.txTestCommand.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txTestCommand.ForeColor = System.Drawing.Color.Lime;
-            this.txTestCommand.Location = new System.Drawing.Point(79, 6);
-            this.txTestCommand.Name = "txTestCommand";
-            this.txTestCommand.Size = new System.Drawing.Size(227, 25);
-            this.txTestCommand.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Command:";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.BackColor = System.Drawing.Color.LightGray;
-            this.tabPage5.Controls.Add(this.panel5);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1259, 284);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Tests 01";
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.chkTests01Loguj);
-            this.panel5.Controls.Add(this.btnTests01SetCurrent);
-            this.panel5.Controls.Add(this.label22);
-            this.panel5.Controls.Add(this.txTests01Result);
-            this.panel5.Controls.Add(this.label21);
-            this.panel5.Controls.Add(this.txTests01Tolerance);
-            this.panel5.Controls.Add(this.txTests01Tries);
-            this.panel5.Controls.Add(this.label20);
-            this.panel5.Controls.Add(this.txTests01Current);
-            this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.label18);
-            this.panel5.Controls.Add(this.cbTests01Channel);
-            this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(6, 6);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(239, 260);
-            this.panel5.TabIndex = 0;
-            // 
-            // chkTests01Loguj
-            // 
-            this.chkTests01Loguj.AutoSize = true;
-            this.chkTests01Loguj.Location = new System.Drawing.Point(90, 199);
-            this.chkTests01Loguj.Name = "chkTests01Loguj";
-            this.chkTests01Loguj.Size = new System.Drawing.Size(102, 19);
-            this.chkTests01Loguj.TabIndex = 15;
-            this.chkTests01Loguj.Text = "Log Operation";
-            this.chkTests01Loguj.UseVisualStyleBackColor = true;
-            // 
-            // btnTests01SetCurrent
-            // 
-            this.btnTests01SetCurrent.Location = new System.Drawing.Point(68, 224);
-            this.btnTests01SetCurrent.Name = "btnTests01SetCurrent";
-            this.btnTests01SetCurrent.Size = new System.Drawing.Size(102, 23);
-            this.btnTests01SetCurrent.TabIndex = 14;
-            this.btnTests01SetCurrent.Text = "SET Current";
-            this.btnTests01SetCurrent.UseVisualStyleBackColor = true;
-            this.btnTests01SetCurrent.Click += new System.EventHandler(this.btnTests01SetCurrent_Click);
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(42, 168);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(42, 15);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "Result:";
-            // 
-            // txTests01Result
-            // 
-            this.txTests01Result.BackColor = System.Drawing.Color.Black;
-            this.txTests01Result.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txTests01Result.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01Result.Location = new System.Drawing.Point(90, 164);
-            this.txTests01Result.Name = "txTests01Result";
-            this.txTests01Result.Size = new System.Drawing.Size(121, 25);
-            this.txTests01Result.TabIndex = 12;
-            this.txTests01Result.Text = "0";
-            this.txTests01Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(3, 137);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(81, 15);
-            this.label21.TabIndex = 11;
-            this.label21.Text = "Tolerance [%]:";
-            // 
-            // txTests01Tolerance
-            // 
-            this.txTests01Tolerance.BackColor = System.Drawing.Color.Black;
-            this.txTests01Tolerance.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txTests01Tolerance.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01Tolerance.Location = new System.Drawing.Point(90, 133);
-            this.txTests01Tolerance.Name = "txTests01Tolerance";
-            this.txTests01Tolerance.Size = new System.Drawing.Size(121, 25);
-            this.txTests01Tolerance.TabIndex = 10;
-            this.txTests01Tolerance.Text = "5";
-            this.txTests01Tolerance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txTests01Tries
-            // 
-            this.txTests01Tries.BackColor = System.Drawing.Color.Black;
-            this.txTests01Tries.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txTests01Tries.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01Tries.Location = new System.Drawing.Point(90, 102);
-            this.txTests01Tries.Name = "txTests01Tries";
-            this.txTests01Tries.Size = new System.Drawing.Size(121, 25);
-            this.txTests01Tries.TabIndex = 9;
-            this.txTests01Tries.Text = "10";
-            this.txTests01Tries.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(41, 108);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(43, 15);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "# Tries:";
-            // 
-            // txTests01Current
-            // 
-            this.txTests01Current.BackColor = System.Drawing.Color.Black;
-            this.txTests01Current.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txTests01Current.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01Current.Location = new System.Drawing.Point(90, 70);
-            this.txTests01Current.Name = "txTests01Current";
-            this.txTests01Current.Size = new System.Drawing.Size(121, 25);
-            this.txTests01Current.TabIndex = 7;
-            this.txTests01Current.Text = "0,1";
-            this.txTests01Current.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(15, 74);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(69, 15);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "Current [A]:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(33, 42);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(51, 15);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Channel";
-            // 
-            // cbTests01Channel
-            // 
-            this.cbTests01Channel.FormattingEnabled = true;
-            this.cbTests01Channel.Items.AddRange(new object[] {
-            "Channel 0",
-            "Channel 1"});
-            this.cbTests01Channel.Location = new System.Drawing.Point(90, 39);
-            this.cbTests01Channel.Name = "cbTests01Channel";
-            this.cbTests01Channel.Size = new System.Drawing.Size(121, 23);
-            this.cbTests01Channel.TabIndex = 1;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label17.Location = new System.Drawing.Point(54, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(116, 20);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Current Setting";
-            // 
             // btnClearMainLog2
             // 
             this.btnClearMainLog2.Location = new System.Drawing.Point(3, 3);
@@ -1139,6 +1144,27 @@ namespace Solar001
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.TimerTick);
             // 
+            // txTests01CurrIterations
+            // 
+            this.txTests01CurrIterations.BackColor = System.Drawing.Color.Black;
+            this.txTests01CurrIterations.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txTests01CurrIterations.ForeColor = System.Drawing.Color.Lime;
+            this.txTests01CurrIterations.Location = new System.Drawing.Point(90, 175);
+            this.txTests01CurrIterations.Name = "txTests01CurrIterations";
+            this.txTests01CurrIterations.Size = new System.Drawing.Size(121, 25);
+            this.txTests01CurrIterations.TabIndex = 16;
+            this.txTests01CurrIterations.Text = "0";
+            this.txTests01CurrIterations.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(15, 179);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(69, 15);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "# Iterations:";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1164,13 +1190,13 @@ namespace Solar001
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -1273,6 +1299,8 @@ namespace Solar001
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnTests01SetCurrent;
         private System.Windows.Forms.CheckBox chkTests01Loguj;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txTests01CurrIterations;
     }
 }
 

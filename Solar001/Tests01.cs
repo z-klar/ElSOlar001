@@ -21,6 +21,7 @@ namespace Solar001
         {
             int chan, tries;
             double current, tolerance, res;
+            AdjustResult ares;
 
             if (cbTests01Channel.SelectedIndex > 0) chan = 1;
             else chan = 0;
@@ -39,8 +40,9 @@ namespace Solar001
                 MessageBox.Show("Wrong tolerance format !");
                 return;
             }
-            res = SetCurrentInt(chan, current, tries, tolerance, chkTests01Loguj.Checked);
-            txTests01Result.Text = String.Format("{0:F3}", res);
+            ares = SetCurrentInt(chan, current, tries, tolerance, chkTests01Loguj.Checked);
+            txTests01Result.Text = String.Format("{0:F3}", ares.Result);
+            txTests01CurrIterations.Text = String.Format("{0}", ares.NoIterations);
         }
         /// <summary>
         /// 
@@ -86,7 +88,7 @@ namespace Solar001
         /// <param name="tries"></param>
         /// <param name="tolerance"></param>
         /// <returns></returns>
-        private double SetCurrentInt(int chan, double current, int tries, double tolerance, bool loguj)
+        private AdjustResult SetCurrentInt(int chan, double current, int tries, double tolerance, bool loguj)
         {
             int testno = tries, curr = 0;
             int setpoint = 1700, step;
@@ -119,7 +121,7 @@ namespace Solar001
                     setpoint += step;
                 }
             }
-            return (calculatedCurrent);
+            return (new AdjustResult(calculatedCurrent, tries-testno));
         }
 
         private double Diff(double target, double value)
