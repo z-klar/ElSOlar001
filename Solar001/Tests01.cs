@@ -112,14 +112,8 @@ namespace Solar001
 
                 testno--;
                 diff = calculatedCurrent - current;
-                if (diff > 0)
-                {
-                    setpoint -= step;
-                }
-                else
-                {
-                    setpoint += step;
-                }
+                if (diff > 0) setpoint -= step;
+                else setpoint += step;
             }
             DisableChannel(chan, true);
             // SP < 700 => There is Out voltage !!!!!!!!!!
