@@ -29,9 +29,12 @@ namespace Solar001
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="channel"></param>
+        /// <param name="channel">Number of required ADC channel. Physical meaning:
+        /// 0 = Current sensor
+        /// 1 = Voltage CHAN0
+        /// 2 = Voltage CHAN2</param>
         /// <returns></returns>
-        private int GetVoltage(int channel, bool loguj)
+        private int GetRawVoltage(int channel, bool loguj)
         {
             String cmd = String.Format("~V{0}#", channel);
             sendCommand2(cmd, loguj);
@@ -43,6 +46,20 @@ namespace Solar001
             if (end == -1) return (-77777);
             String snum = commResponse.Substring(start + 1, end - start - 1);
             return (Convert.ToInt32(snum));
+        }
+        /// <summary>
+        /// Return converted voltage value. Parameter CHANNEL MUST be 0 or 1 !!!!
+        /// </summary>
+        /// <param name="channel">Number of INPUT channel (0 or 1)</param>
+        /// <param name="loguj"></param>
+        /// <returns></returns>
+        private double GetRealVoltage(int channel, bool loguj)
+        {
+            double real;
+            int raw = GetRawVoltage(channel + 1, loguj);
+            if (raw >= -1000) real = raw / VoltageConversionCoeff[channel];
+            else real = (double)raw;
+            return (real);
         }
         /// <summary>
         /// 
@@ -81,7 +98,7 @@ namespace Solar001
             int value = 0;
             for(int i=0; i<10; i++)
             {
-                value += GetVoltage(0, true);
+                value += GetRawVoltage(0, true);
                 Thread.Sleep(1000);
             }
             CurrentZeroOffset = value / 10;
@@ -98,12 +115,31 @@ namespace Solar001
             int res = 0;
             for(int i=0; i<samples; i++)
             {
-                res += GetVoltage(0, loguj);
+                res += GetRawVoltage(0, loguj);
                 Thread.Sleep(period);
             }
             if (loguj) lbCommLog.Items.Add(String.Format("GetAvgCurrent:  #={0}  PER={1}  Value={2}", samples, period, res / samples));
             return (res / samples);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="samples"></param>
+        /// <param name="period"></param>
+        /// <param name="loguj"></param>
+        /// <returns></returns>
+        private double GetAverageRealCurrent(int samples, int period, bool loguj)
+        {
+            int raw = GetAverageCurrent(samples, period, loguj);
+            double milliVolts = (raw - CurrentZeroOffset) * CurrentChanVoltageRatio;
+            double amps = milliVolts / CurrentChanAmpereRatio;
+            return(Math.Abs(amps));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="chan"></param>
+        /// <param name="state"></param>
         private void DisableChannel(int chan, bool state)
         {
             String cmd = String.Format("~D{0}{1}#", chan, state ? 1 : 0);

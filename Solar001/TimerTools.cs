@@ -37,12 +37,12 @@ namespace Solar001
         /// </summary>
         private void UpdateVoltage()
         {
-            int v = GetVoltage(1, false);
+            int v = GetRawVoltage(1, false);
             txCh0VoltageRaw.Text = String.Format("{0:D5}", v);
             double volt = v / VoltageConversionCoeff[0];
             txCh0VoltageReal.Text = String.Format("{0:F2}", volt);
 
-            v = GetVoltage(2, false);
+            v = GetRawVoltage(2, false);
             txCh1VoltageRaw.Text = String.Format("{0:D5}", v);
             volt = v / VoltageConversionCoeff[0];
             txCh1VoltageReal.Text = String.Format("{0:F2}", volt);
@@ -52,7 +52,7 @@ namespace Solar001
         /// </summary>
         private void UpdateCurrent()
         {
-            int v = GetVoltage(0, false);
+            int v = GetRawVoltage(0, false);
             txCurrentRaw.Text = String.Format("{0:D5}", v);
             double milliVolts = (v - CurrentZeroOffset) * CurrentChanVoltageRatio;
             double amps = milliVolts / CurrentChanAmpereRatio;

@@ -141,6 +141,7 @@ namespace Solar001
             }
             catch(Exception ex)
             {
+                sPom = ex.Message;
                 UpdateLog loguj = new UpdateLog(lbCommLog);
                 loguj.UpdateLB("Timeout expired - NO data received !");
                 receptionEnded = true;

@@ -38,6 +38,7 @@ namespace Solar001
         private void OurInit()
         {
             cbTests01Channel.SelectedIndex = 0;
+            cbTest01ChannelVoltage.SelectedIndex = 0;
         }
         /// <summary>
         /// 
@@ -86,7 +87,7 @@ namespace Solar001
 
         private void btnUpdateVoltageCh0_Click(object sender, EventArgs e)
         {
-            int v = GetVoltage(1, true);
+            int v = GetRawVoltage(1, true);
             txCh0VoltageRaw.Text = String.Format("{0:D5}", v);
             double volt = v / VoltageConversionCoeff[0];
             txCh0VoltageReal.Text = String.Format("{0:F2}", volt);
@@ -94,15 +95,15 @@ namespace Solar001
 
         private void btnUpdateVoltageCh1_Click(object sender, EventArgs e)
         {
-            int v = GetVoltage(2, true);
+            int v = GetRawVoltage(2, true);
             txCh1VoltageRaw.Text = String.Format("{0:D5}", v);
-            double volt = v / VoltageConversionCoeff[0];
+            double volt = v / VoltageConversionCoeff[1];
             txCh1VoltageReal.Text = String.Format("{0:F2}", volt);
         }
 
         private void btnUpdateCurrent_Click(object sender, EventArgs e)
         {
-            int v = GetVoltage(0, true);
+            int v = GetRawVoltage(0, true);
             txCurrentRaw.Text = String.Format("{0:D5}", v);
             double milliVolts = (v - CurrentZeroOffset) * CurrentChanVoltageRatio;
             double amps = milliVolts / CurrentChanAmpereRatio;
@@ -217,7 +218,8 @@ namespace Solar001
         {
             int samples, period;
             try { samples = Convert.ToInt32(txCurrentAvgSamples.Text); }
-            catch(Exception ex) { 
+            catch(Exception ex) {
+                String sPom = ex.Message;
                 MessageBox.Show("Wrong SAMPLES format !");
                 return;
             }
@@ -248,6 +250,11 @@ namespace Solar001
         private void btnTests01SetCurrent_Click(object sender, EventArgs e)
         {
             SetCurrent();
+        }
+
+        private void btnTests01SetVoltage_Click(object sender, EventArgs e)
+        {
+            GetLoadChars();
         }
     }
 }
