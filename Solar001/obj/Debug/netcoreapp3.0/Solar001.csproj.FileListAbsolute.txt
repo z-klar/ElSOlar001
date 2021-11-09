@@ -61,3 +61,4 @@ C:\DOTNET\Solar\ElSOlar001\Solar001\obj\Debug\netcoreapp3.0\Solar001.csproj.Copy
 C:\DOTNET\Solar\ElSOlar001\Solar001\obj\Debug\netcoreapp3.0\Solar001.dll
 C:\DOTNET\Solar\ElSOlar001\Solar001\obj\Debug\netcoreapp3.0\Solar001.pdb
 C:\DOTNET\Solar\ElSOlar001\Solar001\obj\Debug\netcoreapp3.0\Solar001.genruntimeconfig.cache
+C:\DOTNET\Solar\Solar001\Solar001\obj\Debug\netcoreapp3.0\Solar001.csproj.CopyComplete

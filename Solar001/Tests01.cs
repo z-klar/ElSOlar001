@@ -179,7 +179,7 @@ namespace Solar001
         /// <returns></returns>
         private VoltageResult GetLoadCharsInt(int channel, double reqVoltage, int tries, double tolerance, bool loguj)
         {
-            int testno = tries, curr = 0;
+            int testno = tries;
             int setpoint = 1700, step;
             double diff, reldiff, reldiffold, delta, voltage = 0;
             VoltageResult res = new VoltageResult();
@@ -205,12 +205,6 @@ namespace Solar001
                     SendSetpointInt(800, loguj);
                     return (res); ;
                 }
-
-                /*
-                if (reldiff > 30) step = 100;
-                else if (reldiff > 15) step = 20;
-                else step = 5;
-                */
                 delta = Math.Abs(reldiff - reldiffold);
                 reldiffold = reldiff;
                 if (delta < 0.3) step = 100;
@@ -221,21 +215,15 @@ namespace Solar001
 
                 testno--;
                 diff = voltage - reqVoltage;
-                if (diff > 0)
-                {
-                    setpoint += step;
-                }
-                else
-                {
-                    setpoint -= step;
-                }
-                sPom = String.Format("#{0}: Volt={1:F2},  reldiff={2:F2}, diffold={3:F2}  delta={4:F2}  step={5} => SP={6}", 
-                                    testno, voltage, reldiff, reldiffold, delta, step, setpoint);
+                if (diff > 0) setpoint += step;
+                else  setpoint -= step;
+                sPom = String.Format("#{0}: Volt={1:F2},  reldiff={2:F2},  delta={3:F2}  step={4} => SP={5}", 
+                                      testno,   voltage,       reldiff,        delta,     step,     setpoint);
                 lbMainLog.Items.Add(sPom);
             }
             res.U12Volt = voltage;
             res.I12Volts = GetAverageRealCurrent(3, 50, loguj);
-            res.NoTries = -999;
+            res.NoTries = -9999;
             DisableChannel(channel, true);
             // SP < 700 => There is Out voltage !!!!!!!!!!
             SendSetpointInt(800, loguj);
