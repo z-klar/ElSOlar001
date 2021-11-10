@@ -1,1 +1,0 @@
-C:\DOTNET\Solar\ElSOlar001\Solar001\obj\Debug\netcoreapp3.0\Solar001.csproj.AssemblyReference.cache
