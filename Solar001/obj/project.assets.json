@@ -433,19 +433,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zdenda\\.nuget\\packages\\": {}
+    "C:\\Users\\z-kla\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DOTNET\\Solar\\ElSOlar001\\Solar001\\Solar001.csproj",
+      "projectUniqueName": "C:\\DOTNET\\Solar\\Solar001\\ElSOlar001\\Solar001\\Solar001.csproj",
       "projectName": "Solar001",
-      "projectPath": "C:\\DOTNET\\Solar\\ElSOlar001\\Solar001\\Solar001.csproj",
-      "packagesPath": "C:\\Users\\Zdenda\\.nuget\\packages\\",
-      "outputPath": "C:\\DOTNET\\Solar\\ElSOlar001\\Solar001\\obj\\",
+      "projectPath": "C:\\DOTNET\\Solar\\Solar001\\ElSOlar001\\Solar001\\Solar001.csproj",
+      "packagesPath": "C:\\Users\\z-kla\\.nuget\\packages\\",
+      "outputPath": "C:\\DOTNET\\Solar\\Solar001\\ElSOlar001\\Solar001\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Zdenda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\z-kla\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -494,7 +498,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

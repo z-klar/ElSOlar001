@@ -250,11 +250,13 @@ namespace Solar001
             DateTime ted = DateTime.Now;
             String sTimestamp = String.Format("{0:D4}{1:D2}{2:D2}T{3:D2}:{4:D2}:{5:D2}:",
                                             ted.Year, ted.Month, ted.Day, ted.Hour, ted.Minute, ted.Second);
+            String sFileName = String.Format("E:\\Tests\\Solar01\\states01_{0:D4}{1:D2}{2:D2}.log",
+                                                                   ted.Year, ted.Month, ted.Day);
             String sData;
             StreamWriter sw = null;
             try
             {
-                FileStream fs = File.Open("E:\\Tests\\Solar01\\states01.log", FileMode.Append, FileAccess.Write);
+                FileStream fs = File.Open(sFileName, FileMode.Append, FileAccess.Write);
                 sw = new StreamWriter(fs, System.Text.Encoding.ASCII);
                 sw.WriteLine("--------------------------------------------");
                 sw.WriteLine(sTimestamp);
