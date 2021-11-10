@@ -258,9 +258,9 @@ namespace Solar001
             {
                 FileStream fs = File.Open(sFileName, FileMode.Append, FileAccess.Write);
                 sw = new StreamWriter(fs, System.Text.Encoding.ASCII);
-                sw.WriteLine("--------------------------------------------");
+                sw.WriteLine("-----------------------");
                 sw.WriteLine(sTimestamp);
-                sw.WriteLine("--------------------------------------------");
+                sw.WriteLine("-----------------------");
                 foreach(OperatioState1 state in states)
                 {
                     sData = String.Format("#{0}: Volt={1:F2},  reldiff={2:F2},  delta={3:F2}  step={4} => SP={5}",
