@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -174,10 +176,14 @@ namespace Solar001
         private VoltageResult GetLoadCharsInt(int channel, double reqVoltage, int tries, double tolerance, bool loguj)
         {
             int testno = tries;
-            int setpoint = 1700, step;
+            int setpoint = 1700, step, ct = 0;
             double diff, reldiff, reldiffold, delta, voltage = 0;
             VoltageResult res = new VoltageResult();
             String sPom;
+            DateTime dtStart = DateTime.Now;
+            DateTime dtEnd;
+            TimeSpan span;
+            ArrayList alStates = new ArrayList();
 
             DisableChannel(channel, false);
             res.Uopen = GetRealVoltage(channel, loguj);
@@ -197,6 +203,10 @@ namespace Solar001
                     DisableChannel(channel, true);
                     // SP < 700 => There is Out voltage !!!!!!!!!!
                     SendSetpointInt(800, loguj);
+                    dtEnd = DateTime.Now;
+                    span = dtEnd.Subtract(dtStart);
+                    res.Duration = span.TotalMilliseconds;
+                    LogujStates(res, alStates);
                     return (res); ;
                 }
                 delta = Math.Abs(reldiff - reldiffold);
@@ -213,15 +223,56 @@ namespace Solar001
                 else  setpoint -= step;
                 sPom = String.Format("#{0}: Volt={1:F2},  reldiff={2:F2},  delta={3:F2}  step={4} => SP={5}", 
                                       testno,   voltage,       reldiff,        delta,     step,     setpoint);
-                lbMainLog.Items.Add(sPom);
+                if(loguj) lbMainLog.Items.Add(sPom);
+                OperatioState1 state = new OperatioState1(ct, voltage, reldiff, delta, step, setpoint);
+                alStates.Add(state);
+                ct++;
             }
             res.U12Volt = voltage;
             res.I12Volts = GetAverageRealCurrent(3, 50, loguj);
-            res.NoTries = -9999;
+            res.NoTries = 9999;
             DisableChannel(channel, true);
             // SP < 700 => There is Out voltage !!!!!!!!!!
             SendSetpointInt(800, loguj);
+            dtEnd = DateTime.Now;
+            span = dtEnd.Subtract(dtStart);
+            res.Duration = span.TotalMilliseconds;
+            LogujStates(res, alStates);
             return (res); ;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        private void LogujStates(VoltageResult res, ArrayList states)
+        {
+            if (res.NoTries < 15) return;
+
+            DateTime ted = DateTime.Now;
+            String sTimestamp = String.Format("{0:D4}{1:D2}{2:D2}T{3:D2}:{4:D2}:{5:D2}:",
+                                            ted.Year, ted.Month, ted.Day, ted.Hour, ted.Minute, ted.Second);
+            String sData;
+            StreamWriter sw = null;
+            try
+            {
+                FileStream fs = File.Open("E:\\Tests\\Solar01\\states01.log", FileMode.Append, FileAccess.Write);
+                sw = new StreamWriter(fs, System.Text.Encoding.ASCII);
+                sw.WriteLine("--------------------------------------------");
+                sw.WriteLine(sTimestamp);
+                sw.WriteLine("--------------------------------------------");
+                foreach(OperatioState1 state in states)
+                {
+                    sData = String.Format("#{0}: Volt={1:F2},  reldiff={2:F2},  delta={3:F2}  step={4} => SP={5}",
+                                   state.Id, state.Voltage, state.RelDiff, state.Delta, state.Step, state.SetPoint);
+                    sw.WriteLine(sData);
+                }
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                lbMainLog.Items.Add(ex.Message);
+            }
+
+        }
+
     }
 }

@@ -10,6 +10,7 @@ namespace Solar001
         public double U12Volt;
         public double I12Volts;
         public int    NoTries;
+        public double Duration;
 
         /// <summary>
         /// 
@@ -24,6 +25,7 @@ namespace Solar001
             this.U12Volt = U12;
             this.I12Volts = I;
             this.NoTries = tries;
+            this.Duration = 0;
         }
         public VoltageResult()
         {
@@ -31,6 +33,7 @@ namespace Solar001
             this.U12Volt = 0;
             this.I12Volts = 0;
             this.NoTries = 0;
+            this.Duration = 0;
         }
     }
 }

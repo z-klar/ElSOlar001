@@ -93,7 +93,7 @@ namespace Solar001
         /// <summary>
         /// 
         /// </summary>
-        private void CalibrateCurrent()
+        private int CalibrateCurrent()
         {
             int value = 0;
             for(int i=0; i<10; i++)
@@ -103,6 +103,7 @@ namespace Solar001
             }
             CurrentZeroOffset = value / 10;
             UpdateCfgData();
+            return (CurrentZeroOffset);
         }
         /// <summary>
         /// 

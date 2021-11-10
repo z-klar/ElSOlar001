@@ -29,7 +29,9 @@ namespace Solar001
             {
                 TimerCounter1 = 0;
                 if (chkAutoVoltage.Checked) UpdateVoltage();
-
+                if (chkAutoCurrent.Checked) UpdateCurrent();
+                if (chkAutoCurrentAvg.Checked) UpdateCurrentAvg();
+                if (chkRunArc001.Checked) ArcChan0Per1();
             }
         } 
         /// <summary>

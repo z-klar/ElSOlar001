@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Zdenda\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Zdenda\\.nuget\\packages"
+    ]
+  }
+}

@@ -83,6 +83,9 @@ namespace Solar001
             this.lbCommLog = new System.Windows.Forms.ListBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.txTests01VoltageOpen = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -140,6 +143,7 @@ namespace Solar001
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.chkRunArc001 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -748,6 +752,7 @@ namespace Solar001
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage5.Controls.Add(this.chkRunArc001);
             this.tabPage5.Controls.Add(this.panel6);
             this.tabPage5.Controls.Add(this.panel5);
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
@@ -760,6 +765,9 @@ namespace Solar001
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.label33);
+            this.panel6.Controls.Add(this.textBox1);
             this.panel6.Controls.Add(this.label32);
             this.panel6.Controls.Add(this.txTests01VoltageOpen);
             this.panel6.Controls.Add(this.label31);
@@ -781,13 +789,43 @@ namespace Solar001
             this.panel6.Controls.Add(this.label30);
             this.panel6.Location = new System.Drawing.Point(251, 6);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(239, 299);
+            this.panel6.Size = new System.Drawing.Size(383, 299);
             this.panel6.TabIndex = 18;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(237, 269);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "Get Characteristics";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(185, 65);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(95, 15);
+            this.label33.TabIndex = 23;
+            this.label33.Text = "Max.Current [A]:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.Black;
+            this.textBox1.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.ForeColor = System.Drawing.Color.Lime;
+            this.textBox1.Location = new System.Drawing.Point(286, 61);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(80, 25);
+            this.textBox1.TabIndex = 22;
+            this.textBox1.Text = "12";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(21, 152);
+            this.label32.Location = new System.Drawing.Point(21, 127);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(63, 15);
             this.label32.TabIndex = 21;
@@ -798,9 +836,9 @@ namespace Solar001
             this.txTests01VoltageOpen.BackColor = System.Drawing.Color.Black;
             this.txTests01VoltageOpen.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txTests01VoltageOpen.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01VoltageOpen.Location = new System.Drawing.Point(90, 147);
+            this.txTests01VoltageOpen.Location = new System.Drawing.Point(90, 123);
             this.txTests01VoltageOpen.Name = "txTests01VoltageOpen";
-            this.txTests01VoltageOpen.Size = new System.Drawing.Size(121, 25);
+            this.txTests01VoltageOpen.Size = new System.Drawing.Size(80, 25);
             this.txTests01VoltageOpen.TabIndex = 20;
             this.txTests01VoltageOpen.Text = "0";
             this.txTests01VoltageOpen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -808,7 +846,7 @@ namespace Solar001
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(21, 208);
+            this.label31.Location = new System.Drawing.Point(219, 158);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(61, 15);
             this.label31.TabIndex = 19;
@@ -819,9 +857,9 @@ namespace Solar001
             this.txTests01ResultCurrent.BackColor = System.Drawing.Color.Black;
             this.txTests01ResultCurrent.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txTests01ResultCurrent.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01ResultCurrent.Location = new System.Drawing.Point(90, 204);
+            this.txTests01ResultCurrent.Location = new System.Drawing.Point(286, 154);
             this.txTests01ResultCurrent.Name = "txTests01ResultCurrent";
-            this.txTests01ResultCurrent.Size = new System.Drawing.Size(121, 25);
+            this.txTests01ResultCurrent.Size = new System.Drawing.Size(80, 25);
             this.txTests01ResultCurrent.TabIndex = 18;
             this.txTests01ResultCurrent.Text = "0";
             this.txTests01ResultCurrent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -829,7 +867,7 @@ namespace Solar001
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(15, 238);
+            this.label24.Location = new System.Drawing.Point(15, 189);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(69, 15);
             this.label24.TabIndex = 17;
@@ -840,9 +878,9 @@ namespace Solar001
             this.txTests01VoltageIterations.BackColor = System.Drawing.Color.Black;
             this.txTests01VoltageIterations.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txTests01VoltageIterations.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01VoltageIterations.Location = new System.Drawing.Point(90, 234);
+            this.txTests01VoltageIterations.Location = new System.Drawing.Point(90, 185);
             this.txTests01VoltageIterations.Name = "txTests01VoltageIterations";
-            this.txTests01VoltageIterations.Size = new System.Drawing.Size(121, 25);
+            this.txTests01VoltageIterations.Size = new System.Drawing.Size(80, 25);
             this.txTests01VoltageIterations.TabIndex = 16;
             this.txTests01VoltageIterations.Text = "0";
             this.txTests01VoltageIterations.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -850,7 +888,7 @@ namespace Solar001
             // chkTest01LogujVoltage
             // 
             this.chkTest01LogujVoltage.AutoSize = true;
-            this.chkTest01LogujVoltage.Location = new System.Drawing.Point(120, 272);
+            this.chkTest01LogujVoltage.Location = new System.Drawing.Point(130, 227);
             this.chkTest01LogujVoltage.Name = "chkTest01LogujVoltage";
             this.chkTest01LogujVoltage.Size = new System.Drawing.Size(102, 19);
             this.chkTest01LogujVoltage.TabIndex = 15;
@@ -861,7 +899,7 @@ namespace Solar001
             // 
             this.btnTests01SetVoltage.Location = new System.Drawing.Point(12, 269);
             this.btnTests01SetVoltage.Name = "btnTests01SetVoltage";
-            this.btnTests01SetVoltage.Size = new System.Drawing.Size(102, 23);
+            this.btnTests01SetVoltage.Size = new System.Drawing.Size(133, 23);
             this.btnTests01SetVoltage.TabIndex = 14;
             this.btnTests01SetVoltage.Text = "SET Voltage";
             this.btnTests01SetVoltage.UseVisualStyleBackColor = true;
@@ -870,7 +908,7 @@ namespace Solar001
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(21, 180);
+            this.label25.Location = new System.Drawing.Point(24, 158);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(60, 15);
             this.label25.TabIndex = 13;
@@ -881,9 +919,9 @@ namespace Solar001
             this.txTests01ResultVoltage.BackColor = System.Drawing.Color.Black;
             this.txTests01ResultVoltage.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txTests01ResultVoltage.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01ResultVoltage.Location = new System.Drawing.Point(90, 176);
+            this.txTests01ResultVoltage.Location = new System.Drawing.Point(90, 154);
             this.txTests01ResultVoltage.Name = "txTests01ResultVoltage";
-            this.txTests01ResultVoltage.Size = new System.Drawing.Size(121, 25);
+            this.txTests01ResultVoltage.Size = new System.Drawing.Size(80, 25);
             this.txTests01ResultVoltage.TabIndex = 12;
             this.txTests01ResultVoltage.Text = "0";
             this.txTests01ResultVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -891,7 +929,7 @@ namespace Solar001
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(3, 123);
+            this.label26.Location = new System.Drawing.Point(3, 96);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(81, 15);
             this.label26.TabIndex = 11;
@@ -902,9 +940,9 @@ namespace Solar001
             this.txTests01ToleranceVoltage.BackColor = System.Drawing.Color.Black;
             this.txTests01ToleranceVoltage.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txTests01ToleranceVoltage.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01ToleranceVoltage.Location = new System.Drawing.Point(90, 119);
+            this.txTests01ToleranceVoltage.Location = new System.Drawing.Point(90, 92);
             this.txTests01ToleranceVoltage.Name = "txTests01ToleranceVoltage";
-            this.txTests01ToleranceVoltage.Size = new System.Drawing.Size(121, 25);
+            this.txTests01ToleranceVoltage.Size = new System.Drawing.Size(80, 25);
             this.txTests01ToleranceVoltage.TabIndex = 10;
             this.txTests01ToleranceVoltage.Text = "5";
             this.txTests01ToleranceVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -914,9 +952,9 @@ namespace Solar001
             this.txTests01TriesVoltage.BackColor = System.Drawing.Color.Black;
             this.txTests01TriesVoltage.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txTests01TriesVoltage.ForeColor = System.Drawing.Color.Lime;
-            this.txTests01TriesVoltage.Location = new System.Drawing.Point(90, 90);
+            this.txTests01TriesVoltage.Location = new System.Drawing.Point(286, 92);
             this.txTests01TriesVoltage.Name = "txTests01TriesVoltage";
-            this.txTests01TriesVoltage.Size = new System.Drawing.Size(121, 25);
+            this.txTests01TriesVoltage.Size = new System.Drawing.Size(80, 25);
             this.txTests01TriesVoltage.TabIndex = 9;
             this.txTests01TriesVoltage.Text = "20";
             this.txTests01TriesVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -924,7 +962,7 @@ namespace Solar001
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(41, 96);
+            this.label27.Location = new System.Drawing.Point(237, 96);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(43, 15);
             this.label27.TabIndex = 8;
@@ -937,7 +975,7 @@ namespace Solar001
             this.txTests01Voltage.ForeColor = System.Drawing.Color.Lime;
             this.txTests01Voltage.Location = new System.Drawing.Point(90, 61);
             this.txTests01Voltage.Name = "txTests01Voltage";
-            this.txTests01Voltage.Size = new System.Drawing.Size(121, 25);
+            this.txTests01Voltage.Size = new System.Drawing.Size(80, 25);
             this.txTests01Voltage.TabIndex = 7;
             this.txTests01Voltage.Text = "12";
             this.txTests01Voltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -968,7 +1006,7 @@ namespace Solar001
             "Channel 1"});
             this.cbTest01ChannelVoltage.Location = new System.Drawing.Point(90, 34);
             this.cbTest01ChannelVoltage.Name = "cbTest01ChannelVoltage";
-            this.cbTest01ChannelVoltage.Size = new System.Drawing.Size(121, 23);
+            this.cbTest01ChannelVoltage.Size = new System.Drawing.Size(80, 23);
             this.cbTest01ChannelVoltage.TabIndex = 1;
             // 
             // label30
@@ -1414,6 +1452,16 @@ namespace Solar001
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.TimerTick);
             // 
+            // chkRunArc001
+            // 
+            this.chkRunArc001.AutoSize = true;
+            this.chkRunArc001.Location = new System.Drawing.Point(666, 19);
+            this.chkRunArc001.Name = "chkRunArc001";
+            this.chkRunArc001.Size = new System.Drawing.Size(214, 19);
+            this.chkRunArc001.TabIndex = 19;
+            this.chkRunArc001.Text = "Run 1 Minute Archive for Channel 0";
+            this.chkRunArc001.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1440,6 +1488,7 @@ namespace Solar001
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1572,6 +1621,10 @@ namespace Solar001
         private System.Windows.Forms.TextBox txTests01ResultCurrent;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox txTests01VoltageOpen;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox chkRunArc001;
     }
 }
 
