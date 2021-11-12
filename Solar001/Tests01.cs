@@ -211,17 +211,49 @@ namespace Solar001
                 }
                 delta = Math.Abs(reldiff - reldiffold);
                 reldiffold = reldiff;
-                if (delta < 0.3) step = 100;
-                else if (delta < 1) step = 24;
-                else if (delta < 3) step = 10;
-                else if (delta < 5) step = 5;
-                else step = 2;
+
+                if(delta < 0.3)
+                {
+                    if (reldiff > 50) step = 100;
+                    else if (reldiff > 8) step = 60;
+                    else if (reldiff > 4) step = 30;
+                    else step = 10;
+                }
+                else if(delta < 1)
+                {
+                    if (reldiff > 50) step = 24;
+                    else if (reldiff > 8) step = 15;
+                    else if (reldiff > 4) step = 8;
+                    else step = 4;
+                }
+                else if(delta < 3)
+                {
+                    if (reldiff > 50) step = 10;
+                    else if (reldiff > 8) step = 6;
+                    else if (reldiff > 4) step = 3;
+                    else step = 2;
+                }
+                else if(delta < 5)
+                {
+                    if (reldiff > 50) step = 5;
+                    else if (reldiff > 8) step = 3;
+                    else if (reldiff > 4) step = 2;
+                    else step = 1;
+                }
+                else
+                {
+                    if (reldiff > 50) step = 5;
+                    else if (reldiff > 8) step = 2;
+                    else if (reldiff > 4) step = 1;
+                    else step = 1;
+                }
+
 
                 testno--;
                 diff = voltage - reqVoltage;
                 if (diff > 0) setpoint += step;
                 else  setpoint -= step;
-                sPom = String.Format("#{0}: Volt={1:F2},  reldiff={2:F2},  delta={3:F2}  step={4} => SP={5}", 
+                sPom = String.Format("{0}; {1:F2}; {2:F2}; {3:F2}; {4};  {5}", 
                                       testno,   voltage,       reldiff,        delta,     step,     setpoint);
                 if(loguj) lbMainLog.Items.Add(sPom);
                 OperatioState1 state = new OperatioState1(ct, voltage, reldiff, delta, step, setpoint);
@@ -263,8 +295,9 @@ namespace Solar001
                 sw.WriteLine("-----------------------");
                 foreach(OperatioState1 state in states)
                 {
-                    sData = String.Format("#{0}: Volt={1:F2},  reldiff={2:F2},  delta={3:F2}  step={4} => SP={5}",
-                                   state.Id, state.Voltage, state.RelDiff, state.Delta, state.Step, state.SetPoint);
+                    sData = String.Format("{0}; {1:F2}; {2:F2}; {3:F2}; {4};  {5}",
+                           state.Id, state.Voltage, state.RelDiff, state.Delta, state.Step, state.SetPoint);
+
                     sw.WriteLine(sData);
                 }
                 sw.Close();
@@ -275,6 +308,204 @@ namespace Solar001
             }
 
         }
+        //******************************************************************************************
+        /// <summary>
+        /// 
+        /// </summary>
+        private void GetLoadChars2()
+        {
+            int chan, tries;
+            double voltage, tolerance, KP, KD, KI;
+            VoltageResult ares;
 
+            if (cbTests01Channel.SelectedIndex > 0) chan = 1;
+            else chan = 0;
+            if ((voltage = CheckDouble(txPidVoltage.Text)) < 0)
+            {
+                MessageBox.Show("Wrong VOLTAGE format !");
+                return;
+            }
+            if ((tries = CheckInt(txPidNotries.Text)) < 0)
+            {
+                MessageBox.Show("Wrong # Tries format !");
+                return;
+            }
+            if ((tolerance = CheckDouble(txPidTolerance.Text)) < 0)
+            {
+                MessageBox.Show("Wrong tolerance format !");
+                return;
+            }
+            if ((KP = CheckDouble(txPidKP.Text)) < 0)
+            {
+                MessageBox.Show("Wrong KP format !");
+                return;
+            }
+            if ((KD = CheckDouble(txPidKD.Text)) < 0)
+            {
+                MessageBox.Show("Wrong KD format !");
+                return;
+            }
+            if ((KI = CheckDouble(txPidKI.Text)) < 0)
+            {
+                MessageBox.Show("Wrong KI format !");
+                return;
+            }
+            ares = GetLoadCharsIn2(chan, voltage, tries, tolerance, false, KP, KD, KI);
+            txPidResultVolt.Text = String.Format("{0:F3}", ares.U12Volt);
+            txPidResultAmp.Text = String.Format("{0:F3}", ares.I12Volts);
+            txPidIterations.Text = String.Format("{0}", ares.NoTries);
+        }
+        double[] LastDiff = { 0, 0, 0, 0, 0 };
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="channel"></param>
+        /// <param name="reqVoltage"></param>
+        /// <param name="tries"></param>
+        /// <param name="tolerance"></param>
+        /// <param name="loguj"></param>
+        /// <param name="KP"></param>
+        /// <param name="KD"></param>
+        /// <param name="KI"></param>
+        /// <returns></returns>
+        private VoltageResult GetLoadCharsIn2(int channel, double reqVoltage, int tries, double tolerance,
+                                              bool loguj, double KP, double KD, double KI)
+        {
+            int testno = tries;
+            int setpoint = 1700, step=0, ct = 0;
+            double diff,  diffold, delta, voltage = 0;
+            double derivative = 0, integral = 0, output=0;
+            VoltageResult res = new VoltageResult();
+            String sPom;
+            DateTime dtStart = DateTime.Now;
+            DateTime dtEnd;
+            TimeSpan span;
+            ArrayList alStates = new ArrayList();
+            OperationState2 state;
+
+            DisableChannel(channel, false);
+            res.Uopen = GetRealVoltage(channel, loguj);
+            if (res.Uopen < reqVoltage) return (res);
+
+            LastDiff[0] = res.Uopen - reqVoltage;
+
+            while (testno >= 0)
+            {
+                SendSetpointInt(setpoint, loguj);
+                Thread.Sleep(50);
+                voltage = GetRealVoltage(channel, loguj);
+                diff = voltage - reqVoltage;
+                if(IsInTolerance(voltage, reqVoltage, tolerance))
+                {
+                    res.U12Volt = voltage;
+                    res.I12Volts = GetAverageRealCurrent(3, 50, loguj);
+                    res.NoTries = tries - testno;
+                    DisableChannel(channel, true);
+                    // SP < 700 => There is Out voltage !!!!!!!!!!
+                    SendSetpointInt(800, loguj);
+                    dtEnd = DateTime.Now;
+                    span = dtEnd.Subtract(dtStart);
+                    res.Duration = span.TotalMilliseconds;
+                    state = new OperationState2(ct, voltage, diff, derivative, integral, output, step, setpoint);
+                    alStates.Add(state);
+                    LogujStates2(res, alStates, KP, KD, KI);
+                    return (res); ;
+                }
+                InsertNewDiff(diff, LastDiff);
+                derivative = LastDiff[0] - LastDiff[1];
+                integral = CalculateIntegral(LastDiff);
+                output = KP * diff + KD * derivative + KI * integral;
+                step = (int)output;
+                setpoint += step;
+                testno--;
+                state = new OperationState2(ct, voltage, diff, derivative, integral, output, step, setpoint);
+                alStates.Add(state);
+                ct++;
+            }
+            res.U12Volt = voltage;
+            res.I12Volts = GetAverageRealCurrent(3, 50, loguj);
+            res.NoTries = 9999;
+            DisableChannel(channel, true);
+            // SP < 700 => There is Out voltage !!!!!!!!!!
+            SendSetpointInt(800, loguj);
+            dtEnd = DateTime.Now;
+            span = dtEnd.Subtract(dtStart);
+            res.Duration = span.TotalMilliseconds;
+            LogujStates2(res, alStates, KP, KD, KI);
+            return (res); ;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="val1"></param>
+        /// <param name="val2"></param>
+        /// <param name="tol"></param>
+        /// <returns></returns>
+        private bool IsInTolerance(double val1, double val2, double tol)
+        {
+            double pom = Math.Abs((val1 - val2) / (val2 / 100));
+            return (pom <= tol);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="val"></param>
+        /// <param name="target"></param>
+        private void InsertNewDiff(double val, double [] target)
+        {
+            int n = target.Length;
+            for (int i = 1; i < n; i++) target[i] = target[i - 1];
+            target[0] = val;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        private double CalculateIntegral(double [] values)
+        {
+            double res = 0;
+            for (int i = 0; i < values.Length; i++) res += values[i];
+            return (res);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="res"></param>
+        /// <param name="states"></param>
+        private void LogujStates2(VoltageResult res, ArrayList states, double KP, double KD, double KI)
+        {
+            //if (res.NoTries < 15) return;
+            DateTime ted = DateTime.Now;
+            String sTimestamp = String.Format("{0:D4}{1:D2}{2:D2}T{3:D2}:{4:D2}:{5:D2}:   KP={6:F2}, KD={7:F2}, KI={8:F2},",
+                                            ted.Year, ted.Month, ted.Day, ted.Hour, ted.Minute, ted.Second, KP, KD, KI);
+            String sFileName = String.Format("E:\\Tests\\Solar01\\states02_{0:D4}{1:D2}{2:D2}.log",
+                                                                   ted.Year, ted.Month, ted.Day);
+            String sData;
+            StreamWriter sw = null;
+            try
+            {
+                FileStream fs = File.Open(sFileName, FileMode.Append, FileAccess.Write);
+                sw = new StreamWriter(fs, System.Text.Encoding.ASCII);
+                sw.WriteLine("----------------------------------");
+                sw.WriteLine(sTimestamp);
+                sw.WriteLine("----------------------------------");
+                foreach (OperationState2 state in states)
+                {
+                    sData = String.Format("{0}; {1:F2}; {2:F2}; {3:F2}; {4:F2};  {5:F2}; {6}; {7}",
+                           state.Id, state.Voltage, state.Diff, state.Derivative, state.Integral, state.Output, state.Step, state.SetPoint);
+
+                    sw.WriteLine(sData);
+                }
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                lbMainLog.Items.Add(ex.Message);
+                sw.Close();
+            }
+
+        }
     }
 }

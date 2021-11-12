@@ -32,6 +32,7 @@ namespace Solar001
                 if (chkAutoCurrent.Checked) UpdateCurrent();
                 if (chkAutoCurrentAvg.Checked) UpdateCurrentAvg();
                 if (chkRunArc001.Checked) ArcChan0Per1();
+                if (chkRunPidTests.Checked) ArcChan0Per2();
             }
         } 
         /// <summary>

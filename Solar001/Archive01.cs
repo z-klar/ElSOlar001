@@ -66,6 +66,52 @@ namespace Solar001
 
         }
 
+        private void ArcChan0Per2()
+        {
+            DateTime ted = DateTime.Now;
+            int hour = ted.Hour;
+            if (hour != LastHour)
+            {
+                LastHour = hour;
+                int res = CalibrateCurrent();
+                LogujDisk(String.Format("Current calibrated - Offset={0}", res));
+            }
+
+            int minute = ted.Minute;
+            if (minute != LastRecMinute)
+            {
+                LastRecMinute = minute;
+                DoArchiving002();
+            }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void DoArchiving002()
+        {
+            VoltageResult res = GetLoadCharsIn2(0, 12, 50, 3, false, 3, 2, 0.1);
+            DateTime ted = DateTime.Now;
+            String sFileName = String.Format("E:\\Tests\\Solar01\\DATA01_{0:D4}_{1:D2}_{2:D2}.txt", ted.Year, ted.Month, ted.Day);
+            String sData = String.Format("{0:D2}:{1:D2}:00; {2:F2}; {3:F}; {4:F3}; {5}; {6:F2}; 3,00; 2,00; 0,10",
+                                     ted.Hour, ted.Minute, res.Uopen, res.U12Volt, res.I12Volts, res.NoTries, res.Duration);
+            StreamWriter sw = null;
+            try
+            {
+                FileStream fs = File.Open(sFileName, FileMode.Append, FileAccess.Write);
+                sw = new StreamWriter(fs, System.Text.Encoding.ASCII);
+                sw.WriteLine(sData);
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                LogujDisk(ex.Message);
+            }
+
+        }
+
+
         /// <summary>
         /// 
         /// </summary>

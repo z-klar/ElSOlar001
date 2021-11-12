@@ -39,6 +39,7 @@ namespace Solar001
         {
             cbTests01Channel.SelectedIndex = 0;
             cbTest01ChannelVoltage.SelectedIndex = 0;
+            cbPidChannel.SelectedIndex = 0;
         }
         /// <summary>
         /// 
@@ -255,6 +256,11 @@ namespace Solar001
         private void btnTests01SetVoltage_Click(object sender, EventArgs e)
         {
             GetLoadChars();
+        }
+
+        private void btnPid01_Click(object sender, EventArgs e)
+        {
+            GetLoadChars2();
         }
     }
 }

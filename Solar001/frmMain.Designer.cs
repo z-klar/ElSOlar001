@@ -82,6 +82,31 @@ namespace Solar001
             this.btnClearCommLog = new System.Windows.Forms.Button();
             this.lbCommLog = new System.Windows.Forms.ListBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label44 = new System.Windows.Forms.Label();
+            this.txPidResultAmp = new System.Windows.Forms.TextBox();
+            this.txPidKI = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txPidKD = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txPidKP = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txPidIterations = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnPid01 = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
+            this.txPidResultVolt = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.txPidTolerance = new System.Windows.Forms.TextBox();
+            this.txPidNotries = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txPidVoltage = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.cbPidChannel = new System.Windows.Forms.ComboBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.chkRunArc001 = new System.Windows.Forms.CheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
@@ -143,7 +168,7 @@ namespace Solar001
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.chkRunArc001 = new System.Windows.Forms.CheckBox();
+            this.chkRunPidTests = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -158,6 +183,7 @@ namespace Solar001
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -752,6 +778,8 @@ namespace Solar001
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage5.Controls.Add(this.chkRunPidTests);
+            this.tabPage5.Controls.Add(this.panel7);
             this.tabPage5.Controls.Add(this.chkRunArc001);
             this.tabPage5.Controls.Add(this.panel6);
             this.tabPage5.Controls.Add(this.panel5);
@@ -761,6 +789,287 @@ namespace Solar001
             this.tabPage5.Size = new System.Drawing.Size(1259, 311);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Voltage / Current Settings";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.label44);
+            this.panel7.Controls.Add(this.txPidResultAmp);
+            this.panel7.Controls.Add(this.txPidKI);
+            this.panel7.Controls.Add(this.label43);
+            this.panel7.Controls.Add(this.txPidKD);
+            this.panel7.Controls.Add(this.label42);
+            this.panel7.Controls.Add(this.txPidKP);
+            this.panel7.Controls.Add(this.label41);
+            this.panel7.Controls.Add(this.label34);
+            this.panel7.Controls.Add(this.txPidIterations);
+            this.panel7.Controls.Add(this.checkBox1);
+            this.panel7.Controls.Add(this.btnPid01);
+            this.panel7.Controls.Add(this.label35);
+            this.panel7.Controls.Add(this.txPidResultVolt);
+            this.panel7.Controls.Add(this.label36);
+            this.panel7.Controls.Add(this.txPidTolerance);
+            this.panel7.Controls.Add(this.txPidNotries);
+            this.panel7.Controls.Add(this.label37);
+            this.panel7.Controls.Add(this.txPidVoltage);
+            this.panel7.Controls.Add(this.label38);
+            this.panel7.Controls.Add(this.label39);
+            this.panel7.Controls.Add(this.cbPidChannel);
+            this.panel7.Controls.Add(this.label40);
+            this.panel7.Location = new System.Drawing.Point(886, 6);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(350, 299);
+            this.panel7.TabIndex = 18;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(24, 179);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(61, 15);
+            this.label44.TabIndex = 25;
+            this.label44.Text = "Result [A]:";
+            // 
+            // txPidResultAmp
+            // 
+            this.txPidResultAmp.BackColor = System.Drawing.Color.Black;
+            this.txPidResultAmp.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidResultAmp.ForeColor = System.Drawing.Color.Lime;
+            this.txPidResultAmp.Location = new System.Drawing.Point(90, 175);
+            this.txPidResultAmp.Name = "txPidResultAmp";
+            this.txPidResultAmp.Size = new System.Drawing.Size(81, 25);
+            this.txPidResultAmp.TabIndex = 24;
+            this.txPidResultAmp.Text = "0";
+            this.txPidResultAmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txPidKI
+            // 
+            this.txPidKI.BackColor = System.Drawing.Color.Black;
+            this.txPidKI.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidKI.ForeColor = System.Drawing.Color.Lime;
+            this.txPidKI.Location = new System.Drawing.Point(225, 151);
+            this.txPidKI.Name = "txPidKI";
+            this.txPidKI.Size = new System.Drawing.Size(81, 25);
+            this.txPidKI.TabIndex = 23;
+            this.txPidKI.Text = "1,0";
+            this.txPidKI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(196, 156);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(20, 15);
+            this.label43.TabIndex = 22;
+            this.label43.Text = "KI:";
+            // 
+            // txPidKD
+            // 
+            this.txPidKD.BackColor = System.Drawing.Color.Black;
+            this.txPidKD.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidKD.ForeColor = System.Drawing.Color.Lime;
+            this.txPidKD.Location = new System.Drawing.Point(225, 121);
+            this.txPidKD.Name = "txPidKD";
+            this.txPidKD.Size = new System.Drawing.Size(81, 25);
+            this.txPidKD.TabIndex = 21;
+            this.txPidKD.Text = "1,0";
+            this.txPidKD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(196, 126);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(25, 15);
+            this.label42.TabIndex = 20;
+            this.label42.Text = "KD:";
+            // 
+            // txPidKP
+            // 
+            this.txPidKP.BackColor = System.Drawing.Color.Black;
+            this.txPidKP.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidKP.ForeColor = System.Drawing.Color.Lime;
+            this.txPidKP.Location = new System.Drawing.Point(225, 90);
+            this.txPidKP.Name = "txPidKP";
+            this.txPidKP.Size = new System.Drawing.Size(81, 25);
+            this.txPidKP.TabIndex = 19;
+            this.txPidKP.Text = "1,0";
+            this.txPidKP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(196, 95);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(24, 15);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "KP:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(15, 207);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(69, 15);
+            this.label34.TabIndex = 17;
+            this.label34.Text = "# Iterations:";
+            // 
+            // txPidIterations
+            // 
+            this.txPidIterations.BackColor = System.Drawing.Color.Black;
+            this.txPidIterations.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidIterations.ForeColor = System.Drawing.Color.Lime;
+            this.txPidIterations.Location = new System.Drawing.Point(90, 203);
+            this.txPidIterations.Name = "txPidIterations";
+            this.txPidIterations.Size = new System.Drawing.Size(81, 25);
+            this.txPidIterations.TabIndex = 16;
+            this.txPidIterations.Text = "0";
+            this.txPidIterations.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(69, 233);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 19);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "Log Operation";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // btnPid01
+            // 
+            this.btnPid01.Location = new System.Drawing.Point(69, 269);
+            this.btnPid01.Name = "btnPid01";
+            this.btnPid01.Size = new System.Drawing.Size(102, 23);
+            this.btnPid01.TabIndex = 14;
+            this.btnPid01.Text = "SET Voltage";
+            this.btnPid01.UseVisualStyleBackColor = true;
+            this.btnPid01.Click += new System.EventHandler(this.btnPid01_Click);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(24, 151);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(60, 15);
+            this.label35.TabIndex = 13;
+            this.label35.Text = "Result [V]:";
+            // 
+            // txPidResultVolt
+            // 
+            this.txPidResultVolt.BackColor = System.Drawing.Color.Black;
+            this.txPidResultVolt.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidResultVolt.ForeColor = System.Drawing.Color.Lime;
+            this.txPidResultVolt.Location = new System.Drawing.Point(90, 147);
+            this.txPidResultVolt.Name = "txPidResultVolt";
+            this.txPidResultVolt.Size = new System.Drawing.Size(81, 25);
+            this.txPidResultVolt.TabIndex = 12;
+            this.txPidResultVolt.Text = "0";
+            this.txPidResultVolt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(3, 123);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(81, 15);
+            this.label36.TabIndex = 11;
+            this.label36.Text = "Tolerance [%]:";
+            // 
+            // txPidTolerance
+            // 
+            this.txPidTolerance.BackColor = System.Drawing.Color.Black;
+            this.txPidTolerance.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidTolerance.ForeColor = System.Drawing.Color.Lime;
+            this.txPidTolerance.Location = new System.Drawing.Point(90, 119);
+            this.txPidTolerance.Name = "txPidTolerance";
+            this.txPidTolerance.Size = new System.Drawing.Size(81, 25);
+            this.txPidTolerance.TabIndex = 10;
+            this.txPidTolerance.Text = "5";
+            this.txPidTolerance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txPidNotries
+            // 
+            this.txPidNotries.BackColor = System.Drawing.Color.Black;
+            this.txPidNotries.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidNotries.ForeColor = System.Drawing.Color.Lime;
+            this.txPidNotries.Location = new System.Drawing.Point(90, 90);
+            this.txPidNotries.Name = "txPidNotries";
+            this.txPidNotries.Size = new System.Drawing.Size(81, 25);
+            this.txPidNotries.TabIndex = 9;
+            this.txPidNotries.Text = "40";
+            this.txPidNotries.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(41, 96);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(43, 15);
+            this.label37.TabIndex = 8;
+            this.label37.Text = "# Tries:";
+            // 
+            // txPidVoltage
+            // 
+            this.txPidVoltage.BackColor = System.Drawing.Color.Black;
+            this.txPidVoltage.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txPidVoltage.ForeColor = System.Drawing.Color.Lime;
+            this.txPidVoltage.Location = new System.Drawing.Point(90, 61);
+            this.txPidVoltage.Name = "txPidVoltage";
+            this.txPidVoltage.Size = new System.Drawing.Size(81, 25);
+            this.txPidVoltage.TabIndex = 7;
+            this.txPidVoltage.Text = "12";
+            this.txPidVoltage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(15, 65);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(67, 15);
+            this.label38.TabIndex = 3;
+            this.label38.Text = "Voltage [V]:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(33, 37);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(51, 15);
+            this.label39.TabIndex = 2;
+            this.label39.Text = "Channel";
+            // 
+            // cbPidChannel
+            // 
+            this.cbPidChannel.FormattingEnabled = true;
+            this.cbPidChannel.Items.AddRange(new object[] {
+            "Channel 0",
+            "Channel 1"});
+            this.cbPidChannel.Location = new System.Drawing.Point(90, 34);
+            this.cbPidChannel.Name = "cbPidChannel";
+            this.cbPidChannel.Size = new System.Drawing.Size(81, 23);
+            this.cbPidChannel.TabIndex = 1;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label40.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label40.Location = new System.Drawing.Point(124, 8);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(73, 20);
+            this.label40.TabIndex = 0;
+            this.label40.Text = "PID Loop";
+            // 
+            // chkRunArc001
+            // 
+            this.chkRunArc001.AutoSize = true;
+            this.chkRunArc001.Location = new System.Drawing.Point(666, 19);
+            this.chkRunArc001.Name = "chkRunArc001";
+            this.chkRunArc001.Size = new System.Drawing.Size(214, 19);
+            this.chkRunArc001.TabIndex = 19;
+            this.chkRunArc001.Text = "Run 1 Minute Archive for Channel 0";
+            this.chkRunArc001.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
@@ -1452,15 +1761,15 @@ namespace Solar001
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.TimerTick);
             // 
-            // chkRunArc001
+            // chkRunPidTests
             // 
-            this.chkRunArc001.AutoSize = true;
-            this.chkRunArc001.Location = new System.Drawing.Point(666, 19);
-            this.chkRunArc001.Name = "chkRunArc001";
-            this.chkRunArc001.Size = new System.Drawing.Size(214, 19);
-            this.chkRunArc001.TabIndex = 19;
-            this.chkRunArc001.Text = "Run 1 Minute Archive for Channel 0";
-            this.chkRunArc001.UseVisualStyleBackColor = true;
+            this.chkRunPidTests.AutoSize = true;
+            this.chkRunPidTests.Location = new System.Drawing.Point(666, 45);
+            this.chkRunPidTests.Name = "chkRunPidTests";
+            this.chkRunPidTests.Size = new System.Drawing.Size(163, 19);
+            this.chkRunPidTests.TabIndex = 20;
+            this.chkRunPidTests.Text = "Run 1 Minute PID Records";
+            this.chkRunPidTests.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -1489,6 +1798,8 @@ namespace Solar001
             this.splitContainer2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1625,6 +1936,31 @@ namespace Solar001
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox chkRunArc001;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox txPidIterations;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnPid01;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txPidResultVolt;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox txPidTolerance;
+        private System.Windows.Forms.TextBox txPidNotries;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox txPidVoltage;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox cbPidChannel;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.TextBox txPidKI;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox txPidKD;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox txPidKP;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox txPidResultAmp;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.CheckBox chkRunPidTests;
     }
 }
 
