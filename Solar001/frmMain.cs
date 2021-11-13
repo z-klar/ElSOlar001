@@ -40,6 +40,7 @@ namespace Solar001
             cbTests01Channel.SelectedIndex = 0;
             cbTest01ChannelVoltage.SelectedIndex = 0;
             cbPidChannel.SelectedIndex = 0;
+            cbLoadProfileChan.SelectedIndex = 0;
         }
         /// <summary>
         /// 
@@ -261,6 +262,11 @@ namespace Solar001
         private void btnPid01_Click(object sender, EventArgs e)
         {
             GetLoadChars2();
+        }
+
+        private void btnLoadTestRun_Click(object sender, EventArgs e)
+        {
+            ReadProfile();
         }
     }
 }

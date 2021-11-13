@@ -160,6 +160,7 @@ namespace Solar001
 
             while(jedem)
             {
+                Thread.Sleep(10);
                 round--;
                 if (round <= 0) break;
                 poc = _serialPort.BytesToRead;
@@ -172,7 +173,6 @@ namespace Solar001
                         jedem = false;
                     }
                 }
-                Thread.Sleep(50);
             }
             sPom = Encoding.ASCII.GetString(rxbuff, 0, noBytesReceived);
             if (loguj)

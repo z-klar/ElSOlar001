@@ -30,6 +30,9 @@ namespace Solar001
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -82,6 +85,7 @@ namespace Solar001
             this.btnClearCommLog = new System.Windows.Forms.Button();
             this.lbCommLog = new System.Windows.Forms.ListBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.chkRunPidTests = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label44 = new System.Windows.Forms.Label();
             this.txPidResultAmp = new System.Windows.Forms.TextBox();
@@ -146,6 +150,12 @@ namespace Solar001
             this.label18 = new System.Windows.Forms.Label();
             this.cbTests01Channel = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.btnLoadTestRun = new System.Windows.Forms.Button();
+            this.label45 = new System.Windows.Forms.Label();
+            this.cbLoadProfileChan = new System.Windows.Forms.ComboBox();
+            this.dgv1 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnTestSendCommand = new System.Windows.Forms.Button();
             this.txTestCommand = new System.Windows.Forms.TextBox();
@@ -168,7 +178,7 @@ namespace Solar001
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.chkRunPidTests = new System.Windows.Forms.CheckBox();
+            this.chkRunLoadTest = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -186,6 +196,12 @@ namespace Solar001
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -203,6 +219,7 @@ namespace Solar001
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -789,6 +806,16 @@ namespace Solar001
             this.tabPage5.Size = new System.Drawing.Size(1259, 311);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Voltage / Current Settings";
+            // 
+            // chkRunPidTests
+            // 
+            this.chkRunPidTests.AutoSize = true;
+            this.chkRunPidTests.Location = new System.Drawing.Point(666, 45);
+            this.chkRunPidTests.Name = "chkRunPidTests";
+            this.chkRunPidTests.Size = new System.Drawing.Size(163, 19);
+            this.chkRunPidTests.TabIndex = 20;
+            this.chkRunPidTests.Text = "Run 1 Minute PID Records";
+            this.chkRunPidTests.UseVisualStyleBackColor = true;
             // 
             // panel7
             // 
@@ -1508,6 +1535,105 @@ namespace Solar001
             this.label17.TabIndex = 0;
             this.label17.Text = "Current Setting";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage6.Controls.Add(this.splitContainer4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1259, 311);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Reading Profile";
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer4.Cursor = System.Windows.Forms.Cursors.VSplit;
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.chkRunLoadTest);
+            this.splitContainer4.Panel1.Controls.Add(this.btnLoadTestRun);
+            this.splitContainer4.Panel1.Controls.Add(this.label45);
+            this.splitContainer4.Panel1.Controls.Add(this.cbLoadProfileChan);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.dgv1);
+            this.splitContainer4.Size = new System.Drawing.Size(1253, 305);
+            this.splitContainer4.SplitterDistance = 443;
+            this.splitContainer4.TabIndex = 0;
+            // 
+            // btnLoadTestRun
+            // 
+            this.btnLoadTestRun.Location = new System.Drawing.Point(139, 256);
+            this.btnLoadTestRun.Name = "btnLoadTestRun";
+            this.btnLoadTestRun.Size = new System.Drawing.Size(110, 30);
+            this.btnLoadTestRun.TabIndex = 5;
+            this.btnLoadTestRun.Text = "RUN Load Test";
+            this.btnLoadTestRun.UseVisualStyleBackColor = true;
+            this.btnLoadTestRun.Click += new System.EventHandler(this.btnLoadTestRun_Click);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(15, 46);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(51, 15);
+            this.label45.TabIndex = 4;
+            this.label45.Text = "Channel";
+            // 
+            // cbLoadProfileChan
+            // 
+            this.cbLoadProfileChan.FormattingEnabled = true;
+            this.cbLoadProfileChan.Items.AddRange(new object[] {
+            "Channel 0",
+            "Channel 1"});
+            this.cbLoadProfileChan.Location = new System.Drawing.Point(72, 43);
+            this.cbLoadProfileChan.Name = "cbLoadProfileChan";
+            this.cbLoadProfileChan.Size = new System.Drawing.Size(81, 23);
+            this.cbLoadProfileChan.TabIndex = 3;
+            // 
+            // dgv1
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("JetBrains Mono", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv1.Location = new System.Drawing.Point(0, 0);
+            this.dgv1.Name = "dgv1";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("JetBrains Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv1.RowHeadersWidth = 18;
+            this.dgv1.RowTemplate.Height = 25;
+            this.dgv1.Size = new System.Drawing.Size(802, 301);
+            this.dgv1.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.LightGray;
@@ -1761,15 +1887,15 @@ namespace Solar001
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.TimerTick);
             // 
-            // chkRunPidTests
+            // chkRunLoadTest
             // 
-            this.chkRunPidTests.AutoSize = true;
-            this.chkRunPidTests.Location = new System.Drawing.Point(666, 45);
-            this.chkRunPidTests.Name = "chkRunPidTests";
-            this.chkRunPidTests.Size = new System.Drawing.Size(163, 19);
-            this.chkRunPidTests.TabIndex = 20;
-            this.chkRunPidTests.Text = "Run 1 Minute PID Records";
-            this.chkRunPidTests.UseVisualStyleBackColor = true;
+            this.chkRunLoadTest.AutoSize = true;
+            this.chkRunLoadTest.Location = new System.Drawing.Point(166, 45);
+            this.chkRunLoadTest.Name = "chkRunLoadTest";
+            this.chkRunLoadTest.Size = new System.Drawing.Size(163, 19);
+            this.chkRunLoadTest.TabIndex = 6;
+            this.chkRunLoadTest.Text = "Run LOAD test on CHAN0";
+            this.chkRunLoadTest.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -1804,6 +1930,13 @@ namespace Solar001
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel1.PerformLayout();
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -1961,6 +2094,13 @@ namespace Solar001
         private System.Windows.Forms.TextBox txPidResultAmp;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.CheckBox chkRunPidTests;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.DataGridView dgv1;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.ComboBox cbLoadProfileChan;
+        private System.Windows.Forms.Button btnLoadTestRun;
+        private System.Windows.Forms.CheckBox chkRunLoadTest;
     }
 }
 
