@@ -30,9 +30,9 @@ namespace Solar001
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -152,6 +152,7 @@ namespace Solar001
             this.label17 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.chkRunLoadTest = new System.Windows.Forms.CheckBox();
             this.btnLoadTestRun = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.cbLoadProfileChan = new System.Windows.Forms.ComboBox();
@@ -178,7 +179,7 @@ namespace Solar001
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.lbMainLog = new System.Windows.Forms.ListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.chkRunLoadTest = new System.Windows.Forms.CheckBox();
+            this.label46 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -227,7 +228,7 @@ namespace Solar001
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1267, 339);
+            this.tabControl1.Size = new System.Drawing.Size(1267, 162);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage4
@@ -1569,6 +1570,16 @@ namespace Solar001
             this.splitContainer4.SplitterDistance = 443;
             this.splitContainer4.TabIndex = 0;
             // 
+            // chkRunLoadTest
+            // 
+            this.chkRunLoadTest.AutoSize = true;
+            this.chkRunLoadTest.Location = new System.Drawing.Point(166, 45);
+            this.chkRunLoadTest.Name = "chkRunLoadTest";
+            this.chkRunLoadTest.Size = new System.Drawing.Size(163, 19);
+            this.chkRunLoadTest.TabIndex = 6;
+            this.chkRunLoadTest.Text = "Run LOAD test on CHAN0";
+            this.chkRunLoadTest.UseVisualStyleBackColor = true;
+            // 
             // btnLoadTestRun
             // 
             this.btnLoadTestRun.Location = new System.Drawing.Point(139, 256);
@@ -1601,34 +1612,34 @@ namespace Solar001
             // 
             // dgv1
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("JetBrains Mono", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("JetBrains Mono", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("JetBrains Mono", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Yellow;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv1.Location = new System.Drawing.Point(0, 0);
             this.dgv1.Name = "dgv1";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("JetBrains Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("JetBrains Mono", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv1.RowHeadersWidth = 18;
             this.dgv1.RowTemplate.Height = 25;
             this.dgv1.Size = new System.Drawing.Size(802, 301);
@@ -1679,6 +1690,7 @@ namespace Solar001
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.LightGray;
+            this.tabPage1.Controls.Add(this.label46);
             this.tabPage1.Controls.Add(this.btnCalibrateCurrent);
             this.tabPage1.Controls.Add(this.btnUpdateCfgData);
             this.tabPage1.Controls.Add(this.txCfgCurrentZeroOffset);
@@ -1694,7 +1706,7 @@ namespace Solar001
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1259, 311);
+            this.tabPage1.Size = new System.Drawing.Size(1259, 134);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Config";
             // 
@@ -1760,7 +1772,7 @@ namespace Solar001
             // 
             // btnClearMainLog
             // 
-            this.btnClearMainLog.Location = new System.Drawing.Point(3, 248);
+            this.btnClearMainLog.Location = new System.Drawing.Point(8, 81);
             this.btnClearMainLog.Name = "btnClearMainLog";
             this.btnClearMainLog.Size = new System.Drawing.Size(75, 23);
             this.btnClearMainLog.TabIndex = 5;
@@ -1842,7 +1854,7 @@ namespace Solar001
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
             this.splitContainer1.Size = new System.Drawing.Size(1271, 633);
-            this.splitContainer1.SplitterDistance = 343;
+            this.splitContainer1.SplitterDistance = 166;
             this.splitContainer1.TabIndex = 1;
             // 
             // splitContainer3
@@ -1864,7 +1876,7 @@ namespace Solar001
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.lbMainLog);
-            this.splitContainer3.Size = new System.Drawing.Size(1271, 286);
+            this.splitContainer3.Size = new System.Drawing.Size(1271, 463);
             this.splitContainer3.SplitterDistance = 33;
             this.splitContainer3.TabIndex = 1;
             // 
@@ -1879,7 +1891,7 @@ namespace Solar001
             this.lbMainLog.ItemHeight = 17;
             this.lbMainLog.Location = new System.Drawing.Point(0, 0);
             this.lbMainLog.Name = "lbMainLog";
-            this.lbMainLog.Size = new System.Drawing.Size(1267, 245);
+            this.lbMainLog.Size = new System.Drawing.Size(1267, 422);
             this.lbMainLog.TabIndex = 0;
             // 
             // timer1
@@ -1887,15 +1899,14 @@ namespace Solar001
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.TimerTick);
             // 
-            // chkRunLoadTest
+            // label46
             // 
-            this.chkRunLoadTest.AutoSize = true;
-            this.chkRunLoadTest.Location = new System.Drawing.Point(166, 45);
-            this.chkRunLoadTest.Name = "chkRunLoadTest";
-            this.chkRunLoadTest.Size = new System.Drawing.Size(163, 19);
-            this.chkRunLoadTest.TabIndex = 6;
-            this.chkRunLoadTest.Text = "Run LOAD test on CHAN0";
-            this.chkRunLoadTest.UseVisualStyleBackColor = true;
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(751, 97);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(110, 15);
+            this.label46.TabIndex = 26;
+            this.label46.Text = "2021-11-17 09:15:00";
             // 
             // frmMain
             // 
@@ -2101,6 +2112,7 @@ namespace Solar001
         private System.Windows.Forms.ComboBox cbLoadProfileChan;
         private System.Windows.Forms.Button btnLoadTestRun;
         private System.Windows.Forms.CheckBox chkRunLoadTest;
+        private System.Windows.Forms.Label label46;
     }
 }
 

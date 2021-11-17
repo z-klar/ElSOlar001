@@ -60,7 +60,7 @@ namespace Solar001
         /// <returns></returns>
         private DataTable ReadProfileInt(int chan, bool loguj)
         {
-            int step, LastVolt, ires;
+            int step, LastVolt, ires, TotalTries, res;
             double  voltage, current;
             DateTime mainTime, itemTime;
 
@@ -77,11 +77,13 @@ namespace Solar001
             AdjustDataGrid();
             if (voltage < 13) return(dtProfileItems);
 
-            ires = 0;
+            ires = TotalTries = 0;
             LastVolt = (int)voltage;
-            while(LastVolt >= 12)
+            while((LastVolt >= 12) && (TotalTries < 300))
             {
-                ires += IncLoad(chan, LastVolt, step);
+                res = IncLoad(chan, LastVolt, step);
+                ires += res;
+                TotalTries += res;
                 voltage = GetRealVoltage(chan, loguj);
                 if((int)voltage != LastVolt)
                 {
